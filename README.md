@@ -1,5 +1,5 @@
 # guille_jobcreator https://discord.gg/eBpmkW6e5j
-## How to install
+## How to install (If you rename the script will not work)
 
 - Upload the database of the script.
 - Go to es_extended -> server -> common.lua
