@@ -18,6 +18,13 @@ Citizen.CreateThread(function()
     
 end)
 
+function ShowFloatingHelpNotification(msg, coords)
+	SetFloatingHelpTextWorldPosition(1, coords.x, coords.y, coords.z + 0.7)
+	SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+	BeginTextCommandDisplayHelp('STRING')
+	AddTextComponentSubstringPlayerName(msg)
+	EndTextCommandDisplayHelp(2, false, true, -1)
+end
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
@@ -1441,10 +1448,4 @@ function checkTable(table)
     end
 end
 
-function ShowFloatingHelpNotification(msg, coords)
-	SetFloatingHelpTextWorldPosition(1, coords.x, coords.y, coords.z + 0.7)
-	SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
-	BeginTextCommandDisplayHelp('STRING')
-	AddTextComponentSubstringPlayerName(msg)
-	EndTextCommandDisplayHelp(2, false, true, -1)
-end
+
