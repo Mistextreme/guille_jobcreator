@@ -88,3 +88,9 @@ end)
 ```
 
 **Later add the esx scripts that I provided in the repo (ALL RIGTHS BELONG TO ESX GROUP)**
+
+**COMMANDS:**
+
+/addcar + model (add cars to the points)
+/addcustomclothes + outfitname (add clothes to job)
+/additem + item (item or weapon) + itemname + price
