@@ -646,7 +646,7 @@ end
 
 RegisterCommand("addcustomclothes", function(source, args)
     TriggerEvent('skinchanger:getSkin', function(skin) plySkin = skin; end)
-	local clothes = '{\"tshirt_1\":'..plySkin["tshirt_1"]..',\"tshirt_2\":'..plySkin["tshirt_2"]..',\"torso_1\":'..plySkin["torso_1"]..',\"shoes_1\":'..plySkin["shoes_1"]..',\"shoes_2\":'..plySkin["shoes_2"]..',\"pants_1\":'..plySkin["pants_1"]..',\"pants_2\":'..plySkin["pants_2"]..',\"arms\":'..plySkin["arms"]..'}'
+	local clothes = '{\"tshirt_1\":'..plySkin["tshirt_1"]..',\"tshirt_2\":'..plySkin["tshirt_2"]..',\"torso_1\":'..plySkin["torso_1"]..',\"torso_2\":'..plySkin["torso_2"]..',\"shoes_1\":'..plySkin["shoes_1"]..',\"shoes_2\":'..plySkin["shoes_2"]..',\"pants_1\":'..plySkin["pants_1"]..',\"pants_2\":'..plySkin["pants_2"]..',\"arms\":'..plySkin["arms"]..'}'
     log(clothes)
     if args[1] then
         TriggerServerEvent("guille_jobs:server:addOutfit", args[1], clothes)
