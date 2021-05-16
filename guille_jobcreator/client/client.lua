@@ -325,28 +325,28 @@ Citizen.CreateThread(function()
                 if v.name == "boss" then
                     if PlayerData.job.grade_name == "boss" then
                         z = v.coords.z + 2
-                        ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to open the boss actions", vector3(v.coords.x, v.coords.y, v.coords.z ) + vector3(0, 0, 1))
+                        ShowFloatingHelpNotification("Press ~r~E~w~ to open the boss actions", vector3(v.coords.x, v.coords.y, v.coords.z ) + vector3(0, 0, 1))
                         if IsControlJustPressed(1,38) then
                             TriggerEvent("guille_jobs:bossactions")
                         end
                     end
                 elseif v.name == "shop" then
-                    ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to open the shop", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Press ~r~E~w~ to open the shop", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
                     if IsControlJustPressed(1,38) then
                         Shop()
                     end
                 elseif v.name == "garagein" then
-                    ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to open the vehicles", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Press ~r~E~w~ to open the vehicles", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
                     if IsControlJustPressed(1,38) then
                         Cars(v.coords.x, v.coords.y, v.coords.z, v.heading)
                     end
                 elseif v.name == "stock" then
-                    ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to open the armory", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Press ~r~E~w~ to open the armory", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
                     if IsControlJustPressed(1,38) then
                         Storage()
                     end
                 elseif v.name == "garageout" then
-                    ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to save the vehicle", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Press ~r~E~w~ to save the vehicle", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
 
                     if IsControlJustPressed(1,38) then
                         local vehicle = GetVehiclePedIsIn(ped, false)
@@ -394,12 +394,12 @@ Citizen.CreateThread(function()
                         end
                     end
                 elseif v.name == "duty" then
-                    ESX.ShowFloatingHelpNotification("Press ~r~E~w~ to open duty", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Press ~r~E~w~ to open duty", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
                     if IsControlJustPressed(1, 38) then
                         TriggerServerEvent("guille_jobs:server:duty")
                     end
                 elseif v.name == "cloackroom" then 
-                    ESX.ShowFloatingHelpNotification("Presiona ~r~E~w~ to clothes", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
+                    ShowFloatingHelpNotification("Presiona ~r~E~w~ to clothes", vector3(v.coords.x, v.coords.y, v.coords.z) + vector3(0, 0, 1))
                     if IsControlJustPressed(1, 38) then
                         skin()
                     end
@@ -1439,4 +1439,12 @@ function checkTable(table)
     else
         return false
     end
+end
+
+function ShowFloatingHelpNotification(msg, coords)
+	SetFloatingHelpTextWorldPosition(1, coords.x, coords.y, coords.z + 0.7)
+	SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+	BeginTextCommandDisplayHelp('STRING')
+	AddTextComponentSubstringPlayerName(msg)
+	EndTextCommandDisplayHelp(2, false, true, -1)
 end
